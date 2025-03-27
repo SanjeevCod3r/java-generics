@@ -1,4 +1,5 @@
-echo "# Java Generics - Notes & Examples
+
+# Java Generics - Notes & Examples
 
 ## 📌 Introduction to Generics  
 Generics in Java allow us to create **classes, interfaces, and methods** that operate on **parameterized types**, ensuring **type safety** and **code reusability**.  
@@ -16,7 +17,6 @@ A **Generic Class** is a class that can operate on different types while maintai
 
 ### Example: Generic Storage Class  
 \`\`\`java
-// Generic class with a type parameter <T>
 public class Storage<T> {
     private T item;
 
@@ -30,12 +30,12 @@ public class Storage<T> {
 
     public static void main(String[] args) {
         Storage<String> stringStorage = new Storage<>();
-        stringStorage.setItem(\"Hello, Generics!\");
-        System.out.println(stringStorage.getItem());  // Output: Hello, Generics!
+        stringStorage.setItem("Hello, Generics!");
+        System.out.println(stringStorage.getItem());
 
         Storage<Integer> intStorage = new Storage<>();
         intStorage.setItem(100);
-        System.out.println(intStorage.getItem());  // Output: 100
+        System.out.println(intStorage.getItem());
     }
 }
 \`\`\`
@@ -48,15 +48,14 @@ A **Generic Method** allows a method to be parameterized with a type.
 ### Example: Generic Method to Print Any Type  
 \`\`\`java
 public class GenericMethodExample {
-    // Generic method with type parameter <T>
     public static <T> void printElement(T element) {
-        System.out.println(\"Element: \" + element);
+        System.out.println("Element: " + element);
     }
 
     public static void main(String[] args) {
-        printElement(\"Hello, World!\");  // String
-        printElement(42);               // Integer
-        printElement(3.14);             // Double
+        printElement("Hello, World!");
+        printElement(42);
+        printElement(3.14);
     }
 }
 \`\`\`
@@ -68,7 +67,6 @@ Using **bounded type parameters**, we can **restrict** the type to a specific su
 
 ### Example: Generic Class with a Bounded Type  
 \`\`\`java
-// Only allows Number or its subclasses (Integer, Double, etc.)
 public class NumericBox<T extends Number> {
     private T value;
 
@@ -97,20 +95,18 @@ Wildcards (`?`) allow **flexibility** when working with **unknown types**.
 import java.util.List;
 
 public class WildcardExample {
-    // Accepts a list of any type
     public static void printList(List<?> list) {
         for (Object obj : list) {
             System.out.println(obj);
         }
     }
 
-    // Accepts only Number or its subclasses
     public static void sumNumbers(List<? extends Number> numbers) {
         double sum = 0;
         for (Number num : numbers) {
             sum += num.doubleValue();
         }
-        System.out.println(\"Sum: \" + sum);
+        System.out.println("Sum: " + sum);
     }
 }
 \`\`\`
@@ -138,8 +134,8 @@ public class Pair<K, V> {
 
 Usage:
 \`\`\`java
-Pair<String, Integer> studentAge = new Pair<>(\"Alice\", 20);
-System.out.println(studentAge.getKey() + \" is \" + studentAge.getValue() + \" years old.\");
+Pair<String, Integer> studentAge = new Pair<>("Alice", 20);
+System.out.println(studentAge.getKey() + " is " + studentAge.getValue() + " years old.");
 \`\`\`
 
 ---
@@ -149,13 +145,11 @@ Interfaces can also use **Generics** to define **flexible types**.
 
 ### Example: Generic Comparable Interface  
 \`\`\`java
-// Generic interface
 interface Container<T> {
     void add(T item);
     T retrieve();
 }
 
-// Implementing the generic interface
 class Box<T> implements Container<T> {
     private T item;
 
@@ -189,3 +183,4 @@ class Box<T> implements Container<T> {
 Generics are **powerful** in Java and **essential for writing reusable, type-safe, and flexible code**. Mastering them helps you build **robust and efficient** applications. 💡  
 
 📌 **Happy Coding! 🚀**  
+
